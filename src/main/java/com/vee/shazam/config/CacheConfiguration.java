@@ -41,6 +41,21 @@ public class CacheConfiguration {
             cm.createCache(com.vee.shazam.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(com.vee.shazam.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.vee.shazam.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(com.vee.shazam.domain.Survey.class.getName(), jcacheConfiguration);
+            cm.createCache(com.vee.shazam.domain.Survey.class.getName() + ".questionOrders", jcacheConfiguration);
+            cm.createCache(com.vee.shazam.domain.Survey.class.getName() + ".surveyResponses", jcacheConfiguration);
+            cm.createCache(com.vee.shazam.domain.QuestionOrder.class.getName(), jcacheConfiguration);
+            cm.createCache(com.vee.shazam.domain.Question.class.getName(), jcacheConfiguration);
+            cm.createCache(com.vee.shazam.domain.Question.class.getName() + ".questionTypes", jcacheConfiguration);
+            cm.createCache(com.vee.shazam.domain.Question.class.getName() + ".responseChoices", jcacheConfiguration);
+            cm.createCache(com.vee.shazam.domain.Question.class.getName() + ".res", jcacheConfiguration);
+            cm.createCache(com.vee.shazam.domain.QuestionType.class.getName(), jcacheConfiguration);
+            cm.createCache(com.vee.shazam.domain.ResponseChoice.class.getName(), jcacheConfiguration);
+            cm.createCache(com.vee.shazam.domain.VeeResponse.class.getName(), jcacheConfiguration);
+            cm.createCache(com.vee.shazam.domain.SurveyResponse.class.getName(), jcacheConfiguration);
+            cm.createCache(com.vee.shazam.domain.Respondent.class.getName(), jcacheConfiguration);
+            cm.createCache(com.vee.shazam.domain.Respondent.class.getName() + ".res", jcacheConfiguration);
+            cm.createCache(com.vee.shazam.domain.Respondent.class.getName() + ".surveyResponses", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

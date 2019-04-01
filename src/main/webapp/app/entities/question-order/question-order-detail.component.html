@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="questionOrder">
+            <h2><span>Question Order</span> {{questionOrder.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Order</span></dt>
+                <dd>
+                    <span>{{questionOrder.order}}</span>
+                </dd>
+                <dt><span>Survey</span></dt>
+                <dd>
+                    <div *ngIf="questionOrder.survey">
+                        <a [routerLink]="['/survey', questionOrder.survey?.id, 'view']">{{questionOrder.survey?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Question Order</span></dt>
+                <dd>
+                    <div *ngIf="questionOrder.questionOrder">
+                        <a [routerLink]="['/question', questionOrder.questionOrder?.id, 'view']">{{questionOrder.questionOrder?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/question-order', questionOrder.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-survey-response-heading">Create or edit a Survey Response</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!surveyResponse.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="surveyResponse.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_updated">Updated</label>
+                    <div class="d-flex">
+                        <input id="field_updated" type="datetime-local" class="form-control" name="updated" [(ngModel)]="updated" placeholder="YYYY-MM-DD HH:mm"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_startedat">Startedat</label>
+                    <div class="d-flex">
+                        <input id="field_startedat" type="datetime-local" class="form-control" name="startedat" [(ngModel)]="startedat" placeholder="YYYY-MM-DD HH:mm"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_completedat">Completedat</label>
+                    <div class="d-flex">
+                        <input id="field_completedat" type="datetime-local" class="form-control" name="completedat" [(ngModel)]="completedat" placeholder="YYYY-MM-DD HH:mm"
+                        />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_survey">Survey</label>
+                    <select class="form-control" id="field_survey" name="survey" [(ngModel)]="surveyResponse.surveyId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="surveyOption.id" *ngFor="let surveyOption of surveys; trackBy: trackSurveyById">{{surveyOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_respondent">Respondent</label>
+                    <select class="form-control" id="field_respondent" name="respondent" [(ngModel)]="surveyResponse.respondentId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="respondentOption.id" *ngFor="let respondentOption of respondents; trackBy: trackRespondentById">{{respondentOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
