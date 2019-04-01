@@ -20,6 +20,7 @@ import { ShazamEntityModule } from './entities/entity.module';
 import * as moment from 'moment';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ErrorComponent } from './layouts';
+import { ShazamSignInModule } from './sign-in/sign-in.module';
 
 @NgModule({
     imports: [
@@ -32,7 +33,7 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
         }),
         ShazamSharedModule.forRoot(),
         ShazamCoreModule,
-        ShazamHomeModule,
+        ShazamSignInModule,
         ShazamAccountModule,
         // jhipster-needle-angular-add-module JHipster will add new module here
         ShazamEntityModule,
