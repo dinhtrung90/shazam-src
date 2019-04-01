@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-question-order-heading">Create or edit a Question Order</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!questionOrder.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="questionOrder.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_order">Order</label>
+                    <input type="number" class="form-control" name="order" id="field_order"
+                        [(ngModel)]="questionOrder.order" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_survey">Survey</label>
+                    <select class="form-control" id="field_survey" name="survey" [(ngModel)]="questionOrder.survey" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="surveyOption.id === questionOrder.survey?.id ? questionOrder.survey : surveyOption" *ngFor="let surveyOption of surveys; trackBy: trackSurveyById">{{surveyOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_questionOrder">Question Order</label>
+                    <select class="form-control" id="field_questionOrder" name="questionOrder" [(ngModel)]="questionOrder.questionOrder" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="questionOption.id === questionOrder.questionOrder?.id ? questionOrder.questionOrder : questionOption" *ngFor="let questionOption of questions; trackBy: trackQuestionById">{{questionOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

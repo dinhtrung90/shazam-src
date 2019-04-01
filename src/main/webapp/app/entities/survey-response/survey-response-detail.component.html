@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="surveyResponse">
+            <h2><span>Survey Response</span> {{surveyResponse.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Updated</span></dt>
+                <dd>
+                    <span>{{surveyResponse.updated}}</span>
+                </dd>
+                <dt><span>Startedat</span></dt>
+                <dd>
+                    <span>{{surveyResponse.startedat}}</span>
+                </dd>
+                <dt><span>Completedat</span></dt>
+                <dd>
+                    <span>{{surveyResponse.completedat}}</span>
+                </dd>
+                <dt><span>Survey</span></dt>
+                <dd>
+                    <div *ngIf="surveyResponse.surveyId">
+                        <a [routerLink]="['/survey', surveyResponse.surveyId, 'view']">{{surveyResponse.surveyId}}</a>
+                    </div>
+                </dd>
+                <dt><span>Respondent</span></dt>
+                <dd>
+                    <div *ngIf="surveyResponse.respondentId">
+                        <a [routerLink]="['/respondent', surveyResponse.respondentId, 'view']">{{surveyResponse.respondentId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/survey-response', surveyResponse.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
