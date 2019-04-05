@@ -1,11 +1,70 @@
-<jhi-page-ribbon></jhi-page-ribbon>
-<div>
-    <router-outlet name="navbar"></router-outlet>
-</div>
-<div class="container-fluid">
-    <div class="card jh-card">
-        <router-outlet></router-outlet>
-        <router-outlet name="popup"></router-outlet>
+<div [ngSwitch]="isAuthenticated()">
+    <jhi-sign-in *ngSwitchCase="false" ></jhi-sign-in>
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!--SideBar-->
+        <jhi-sidebar *ngSwitchCase="true" ></jhi-sidebar>
+        <!--End Side Bar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+            <!--Top Bar-->
+            <jhi-navigation *ngSwitchCase="true" ></jhi-navigation>
+            <!--End Top Bar -->
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <div >
+                        <router-outlet *ngSwitchCase="true"></router-outlet>
+                    </div>
+
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <div [ngSwitch]="isAuthenticated()">
+                <jhi-footer *ngSwitchCase="true" ></jhi-footer>
+            </div>
+
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
     </div>
-    <jhi-footer></jhi-footer>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="submit" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" data-dismiss="modal" (click)="logout()">Logout</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+

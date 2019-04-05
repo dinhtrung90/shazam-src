@@ -20,10 +20,17 @@ import { ShazamEntityModule } from './entities/entity.module';
 import * as moment from 'moment';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ErrorComponent } from './layouts';
-import { ShazamSignInModule } from './sign-in/sign-in.module';
+import { SignInComponent } from './sign-in';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DashBoardComponent } from './dash-board/dash-board.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 @NgModule({
     imports: [
+        FormsModule,
+        ReactiveFormsModule,
         BrowserModule,
         Ng2Webstorage.forRoot({ prefix: 'jhi', separator: '-' }),
         NgJhipsterModule.forRoot({
@@ -32,14 +39,23 @@ import { ShazamSignInModule } from './sign-in/sign-in.module';
             alertTimeout: 5000
         }),
         ShazamSharedModule.forRoot(),
+        ShazamHomeModule,
         ShazamCoreModule,
-        ShazamSignInModule,
         ShazamAccountModule,
         // jhipster-needle-angular-add-module JHipster will add new module here
         ShazamEntityModule,
         ShazamAppRoutingModule
     ],
-    declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, FooterComponent],
+    declarations: [
+        JhiMainComponent,
+        NavbarComponent,
+        ErrorComponent,
+        PageRibbonComponent,
+        FooterComponent,
+        SidebarComponent,
+        NavigationComponent,
+        SignInComponent
+    ],
     providers: [
         {
             provide: HTTP_INTERCEPTORS,

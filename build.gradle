@@ -166,6 +166,10 @@ liquibase {
 configurations {
     providedRuntime
     compile.exclude module: "spring-boot-starter-tomcat"
+    developmentOnly
+    runtimeClasspath {
+        extendsFrom developmentOnly
+    }
 }
 
 repositories {
@@ -263,6 +267,7 @@ dependencies {
     testCompile "org.hamcrest:hamcrest-library"
     testCompile "com.h2database:h2"
     //jhipster-needle-gradle-dependency - JHipster will add additional dependencies here
+    developmentOnly("org.springframework.boot:spring-boot-devtools")
 }
 
 task cleanResources(type: Delete) {
