@@ -15,6 +15,8 @@ public class QuestionDTO implements Serializable {
     private Instant updated;
 
 
+    private Long questionTypeId;
+
     public Long getId() {
         return id;
     }
@@ -37,6 +39,14 @@ public class QuestionDTO implements Serializable {
 
     public void setUpdated(Instant updated) {
         this.updated = updated;
+    }
+
+    public Long getQuestionTypeId() {
+        return questionTypeId;
+    }
+
+    public void setQuestionTypeId(Long questionTypeId) {
+        this.questionTypeId = questionTypeId;
     }
 
     @Override
@@ -66,6 +76,7 @@ public class QuestionDTO implements Serializable {
             "id=" + getId() +
             ", text='" + getText() + "'" +
             ", updated='" + getUpdated() + "'" +
+            ", questionType=" + getQuestionTypeId() +
             "}";
     }
 }

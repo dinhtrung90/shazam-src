@@ -12,10 +12,12 @@
     ],
     "relationships": [
         {
-            "relationshipType": "one-to-many",
+            "relationshipType": "one-to-one",
             "otherEntityName": "questionType",
             "otherEntityRelationshipName": "question",
-            "relationshipName": "questionType"
+            "relationshipName": "questionType",
+            "otherEntityField": "id",
+            "ownerSide": true
         },
         {
             "relationshipType": "one-to-many",

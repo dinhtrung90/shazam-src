@@ -31,7 +31,6 @@
             <tr>
             <th><span>ID</span></th>
             <th><span>Name</span></th>
-            <th><span>Question</span></th>
             <th></th>
             </tr>
             </thead>
@@ -39,11 +38,6 @@
             <tr *ngFor="let questionType of questionTypes ;trackBy: trackId">
                 <td><a [routerLink]="['/question-type', questionType.id, 'view' ]">{{questionType.id}}</a></td>
                 <td>{{questionType.name}}</td>
-                <td>
-                    <div *ngIf="questionType.questionId">
-                        <a [routerLink]="['../question', questionType.questionId , 'view' ]" >{{questionType.questionId}}</a>
-                    </div>
-                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

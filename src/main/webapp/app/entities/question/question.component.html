@@ -32,6 +32,7 @@
             <th jhiSortBy="id"><span>ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="text"><span>Text</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th jhiSortBy="updated"><span>Updated</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="questionTypeId"><span>Question Type</span> <fa-icon [icon]="'sort'"></fa-icon></th>
             <th></th>
             </tr>
             </thead>
@@ -40,6 +41,11 @@
                 <td><a [routerLink]="['/question', question.id, 'view' ]">{{question.id}}</a></td>
                 <td>{{question.text}}</td>
                 <td>{{question.updated | date:'medium'}}</td>
+                <td>
+                    <div *ngIf="question.questionTypeId">
+                        <a [routerLink]="['../question-type', question.questionTypeId , 'view' ]" >{{question.questionTypeId}}</a>
+                    </div>
+                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

@@ -20,5 +20,6 @@
     <include file="config/liquibase/changelog/20190401025902_added_entity_constraints_VeeResponse.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190401025903_added_entity_constraints_SurveyResponse.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190401025904_added_entity_constraints_Respondent.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190401025859_added_entity_constraints_Question.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>
