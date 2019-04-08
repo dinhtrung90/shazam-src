@@ -13,6 +13,12 @@
                 <dd>
                     <span>{{question.updated}}</span>
                 </dd>
+                <dt><span>Question Type</span></dt>
+                <dd>
+                    <div *ngIf="question.questionTypeId">
+                        <a [routerLink]="['/question-type', question.questionTypeId, 'view']">{{question.questionTypeId}}</a>
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"

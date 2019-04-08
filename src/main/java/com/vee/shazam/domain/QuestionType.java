@@ -1,7 +1,6 @@
 package com.vee.shazam.domain;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -29,10 +28,6 @@ public class QuestionType implements Serializable {
     @Column(name = "name")
     private String name;
 
-    @ManyToOne
-    @JsonIgnoreProperties("questionTypes")
-    private Question question;
-
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -53,19 +48,6 @@ public class QuestionType implements Serializable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Question getQuestion() {
-        return question;
-    }
-
-    public QuestionType question(Question question) {
-        this.question = question;
-        return this;
-    }
-
-    public void setQuestion(Question question) {
-        this.question = question;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

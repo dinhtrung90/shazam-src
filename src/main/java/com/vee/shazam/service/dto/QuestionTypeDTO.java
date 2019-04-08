@@ -12,8 +12,6 @@ public class QuestionTypeDTO implements Serializable {
     private String name;
 
 
-    private Long questionId;
-
     public Long getId() {
         return id;
     }
@@ -28,14 +26,6 @@ public class QuestionTypeDTO implements Serializable {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Long getQuestionId() {
-        return questionId;
-    }
-
-    public void setQuestionId(Long questionId) {
-        this.questionId = questionId;
     }
 
     @Override
@@ -64,7 +54,6 @@ public class QuestionTypeDTO implements Serializable {
         return "QuestionTypeDTO{" +
             "id=" + getId() +
             ", name='" + getName() + "'" +
-            ", question=" + getQuestionId() +
             "}";
     }
 }
