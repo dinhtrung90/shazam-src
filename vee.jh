@@ -40,7 +40,7 @@ enum Gender {
 
 
 relationship OneToMany {
-	Question{questionType} to QuestionType,
+	
 	Question{responseChoice} to ResponseChoice,
 	Question{res} to VeeResponse,
 	Survey{questionOrder} to QuestionOrder,
@@ -57,7 +57,8 @@ entity Respondent {
 }
 
 relationship OneToOne {
-    Respondent{user} to User
+    Respondent{user} to User,
+    Question{questionType} to QuestionType
 }
 relationship ManyToOne{
     QuestionOrder{questionOrder} to Question
