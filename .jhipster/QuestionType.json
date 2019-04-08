@@ -6,14 +6,7 @@
             "fieldType": "String"
         }
     ],
-    "relationships": [
-        {
-            "relationshipName": "question",
-            "otherEntityName": "question",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
-        }
-    ],
+    "relationships": [],
     "changelogDate": "20190401025900",
     "entityTableName": "question_type",
     "dto": "mapstruct",

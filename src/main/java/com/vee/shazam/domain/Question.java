@@ -35,9 +35,10 @@ public class Question implements Serializable {
     @Column(name = "updated")
     private Instant updated;
 
-    @OneToMany(mappedBy = "question")
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<QuestionType> questionTypes = new HashSet<>();
+    @OneToOne
+    @JoinColumn(unique = true)
+    private QuestionType questionType;
+
     @OneToMany(mappedBy = "question")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<ResponseChoice> responseChoices = new HashSet<>();
@@ -79,29 +80,17 @@ public class Question implements Serializable {
         this.updated = updated;
     }
 
-    public Set<QuestionType> getQuestionTypes() {
-        return questionTypes;
+    public QuestionType getQuestionType() {
+        return questionType;
     }
 
-    public Question questionTypes(Set<QuestionType> questionTypes) {
-        this.questionTypes = questionTypes;
+    public Question questionType(QuestionType questionType) {
+        this.questionType = questionType;
         return this;
     }
 
-    public Question addQuestionType(QuestionType questionType) {
-        this.questionTypes.add(questionType);
-        questionType.setQuestion(this);
-        return this;
-    }
-
-    public Question removeQuestionType(QuestionType questionType) {
-        this.questionTypes.remove(questionType);
-        questionType.setQuestion(null);
-        return this;
-    }
-
-    public void setQuestionTypes(Set<QuestionType> questionTypes) {
-        this.questionTypes = questionTypes;
+    public void setQuestionType(QuestionType questionType) {
+        this.questionType = questionType;
     }
 
     public Set<ResponseChoice> getResponseChoices() {
